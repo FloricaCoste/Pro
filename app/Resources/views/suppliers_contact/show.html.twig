@@ -1,0 +1,56 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suppliers_contact</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ suppliers_contact.id }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersid</th>
+                <td>{{ suppliers_contact.suppliersId }}</td>
+            </tr>
+            <tr>
+                <th>Supplierscontactname</th>
+                <td>{{ suppliers_contact.suppliersContactName }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersphone</th>
+                <td>{{ suppliers_contact.suppliersPhone }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersmobile</th>
+                <td>{{ suppliers_contact.suppliersMobile }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersemail</th>
+                <td>{{ suppliers_contact.suppliersEMail }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersfax</th>
+                <td>{{ suppliers_contact.suppliersFax }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersweb</th>
+                <td>{{ suppliers_contact.suppliersWeb }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('suppliers_contact_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('suppliers_contact_edit', { 'id': suppliers_contact.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

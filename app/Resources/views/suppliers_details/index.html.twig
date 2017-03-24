@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suppliers_details list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Suppliersid</th>
+                <th>Susuppliersname</th>
+                <th>Suppliersbusinesstype</th>
+                <th>Suppliersweb</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for suppliers_detail in suppliers_details %}
+            <tr>
+                <td><a href="{{ path('suppliers_details_show', { 'id': suppliers_detail.id }) }}">{{ suppliers_detail.id }}</a></td>
+                <td>{{ suppliers_detail.suppliersId }}</td>
+                <td>{{ suppliers_detail.susuppliersName }}</td>
+                <td>{{ suppliers_detail.suppliersBusinessType }}</td>
+                <td>{{ suppliers_detail.suppliersWeb }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('suppliers_details_show', { 'id': suppliers_detail.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('suppliers_details_edit', { 'id': suppliers_detail.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('suppliers_details_new') }}">Create a new suppliers_detail</a>
+        </li>
+    </ul>
+{% endblock %}

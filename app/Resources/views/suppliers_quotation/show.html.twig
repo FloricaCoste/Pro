@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suppliers_quotation</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ suppliers_quotation.id }}</td>
+            </tr>
+            <tr>
+                <th>Quotationno</th>
+                <td>{{ suppliers_quotation.quotationNo }}</td>
+            </tr>
+            <tr>
+                <th>Supplierid</th>
+                <td>{{ suppliers_quotation.supplierId }}</td>
+            </tr>
+            <tr>
+                <th>Productcountinggroup</th>
+                <td>{{ suppliers_quotation.productCountingGroup }}</td>
+            </tr>
+            <tr>
+                <th>Productunit</th>
+                <td>{{ suppliers_quotation.productUnit }}</td>
+            </tr>
+            <tr>
+                <th>Qualityunit</th>
+                <td>{{ suppliers_quotation.qualityUnit }}</td>
+            </tr>
+            <tr>
+                <th>Priceunit</th>
+                <td>{{ suppliers_quotation.priceUnit }}</td>
+            </tr>
+            <tr>
+                <th>Productdescription</th>
+                <td>{{ suppliers_quotation.productDescription }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ suppliers_quotation.uRL }}</td>
+            </tr>
+            <tr>
+                <th>Estimateddeliverytime</th>
+                <td>{{ suppliers_quotation.estimatedDeliveryTime }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('suppliers_quotation_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('suppliers_quotation_edit', { 'id': suppliers_quotation.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

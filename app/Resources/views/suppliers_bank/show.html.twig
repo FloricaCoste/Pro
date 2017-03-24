@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suppliers_bank</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ suppliers_bank.id }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersid</th>
+                <td>{{ suppliers_bank.suppliersId }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersbankname</th>
+                <td>{{ suppliers_bank.suppliersBankName }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersaccno</th>
+                <td>{{ suppliers_bank.suppliersAccNo }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersiban</th>
+                <td>{{ suppliers_bank.suppliersIBAN }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersbic</th>
+                <td>{{ suppliers_bank.suppliersBIC }}</td>
+            </tr>
+            <tr>
+                <th>Supplierscountry</th>
+                <td>{{ suppliers_bank.suppliersCountry }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersbankaddress</th>
+                <td>{{ suppliers_bank.suppliersBankAddress }}</td>
+            </tr>
+            <tr>
+                <th>Uppliersswift</th>
+                <td>{{ suppliers_bank.uppliersSwift }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersroutingcod</th>
+                <td>{{ suppliers_bank.suppliersRoutingCod }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('suppliers_bank_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('suppliers_bank_edit', { 'id': suppliers_bank.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

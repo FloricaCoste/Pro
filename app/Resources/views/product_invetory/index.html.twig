@@ -1,0 +1,53 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Product_invetories list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Productid</th>
+                <th>Productcountinggroup</th>
+                <th>Productunit</th>
+                <th>Qualityunit</th>
+                <th>Priceunit</th>
+                <th>Productdescription</th>
+                <th>Url</th>
+                <th>Estimateddeliverytime</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for product_invetory in product_invetories %}
+            <tr>
+                <td><a href="{{ path('product_invetory_show', { 'id': product_invetory.id }) }}">{{ product_invetory.id }}</a></td>
+                <td>{{ product_invetory.productID }}</td>
+                <td>{{ product_invetory.productCountingGroup }}</td>
+                <td>{{ product_invetory.productUnit }}</td>
+                <td>{{ product_invetory.qualityUnit }}</td>
+                <td>{{ product_invetory.priceUnit }}</td>
+                <td>{{ product_invetory.productDescription }}</td>
+                <td>{{ product_invetory.uRL }}</td>
+                <td>{{ product_invetory.estimatedDeliveryTime }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('product_invetory_show', { 'id': product_invetory.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('product_invetory_edit', { 'id': product_invetory.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('product_invetory_new') }}">Create a new product_invetory</a>
+        </li>
+    </ul>
+{% endblock %}
