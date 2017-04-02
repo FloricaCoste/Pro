@@ -15,3 +15,8 @@ c8bcf7,127.0.0.1,GET,http://localhost:8000/app_dev.php/lucky/number,1490390535,,
 aa04a2,127.0.0.1,GET,http://localhost:8000/,1490390874,fa8fb7,200
 fa8fb7,127.0.0.1,GET,http://localhost:8000/,1490390875,,500
 58fc87,127.0.0.1,GET,http://localhost:8000/,1490390906,,200
+56a36a,127.0.0.1,GET,http://localhost:8000/,1490455447,,200
+49c2cc,127.0.0.1,GET,http://localhost:8000/user/login,1490455533,b9d29f,200
+b9d29f,127.0.0.1,GET,http://localhost:8000/user/login,1490455533,,404
+0b5756,127.0.0.1,GET,http://localhost:8000/login,1490455564,2762a7,200
+2762a7,127.0.0.1,GET,http://localhost:8000/login,1490455564,,404
