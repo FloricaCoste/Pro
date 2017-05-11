@@ -1,0 +1,12 @@
+.flash-error {
+    padding: 1rem;
+    margin: 1rem;
+    background-color: peru;
+}
+
+header {
+    text-align: right;
+    padding: 0.5rem;
+    border-bottom: 0.1rem solid brown;
+    background-color: coral;
+}

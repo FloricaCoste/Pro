@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suppliers_addresses list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Suppliersid</th>
+                <th>Suppliersaddress</th>
+                <th>Suppliersregion</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for suppliers_address in suppliers_addresses %}
+            <tr>
+                <td><a href="{{ path('suppliers_address_show', { 'id': suppliers_address.id }) }}">{{ suppliers_address.id }}</a></td>
+                <td>{{ suppliers_address.suppliersID }}</td>
+                <td>{{ suppliers_address.suppliersAddress }}</td>
+                <td>{{ suppliers_address.suppliersRegion }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('suppliers_address_show', { 'id': suppliers_address.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('suppliers_address_edit', { 'id': suppliers_address.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('suppliers_address_new') }}">Create a new suppliers_address</a>
+        </li>
+    </ul>
+{% endblock %}

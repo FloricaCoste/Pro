@@ -1,0 +1,42 @@
+{% extends 'base.html.twig' %}
+
+{% block pageTitle %}List of Product{% endblock %}
+
+{% block body %}
+
+    {% set basket_product_detail = app.session.get('basket') %}
+
+    {{ dump(app.session.get('basket')) }}
+
+    <h1>List of products in basket</h1>
+
+    {% if basket_product_detail is null %}
+        <p>
+            You have no product in your basket!!!
+        </p>
+    {% else %}
+        <ul>
+            {% for product_details in basket_suppliers_detail %}
+                <li>
+                    <hr>
+                    suppliers_id = {{ product_details.suppliersId }}
+                    <br>
+                    susuppliers_Name = {{ product_details.susuppliersName  }}
+                    <br>
+                    suppliers_business_type = {{ product_details.suppliersBusinessType }}
+                    <br>
+                    suppliers_web = {{ product_details.suppliersWeb }}
+                    <br>
+                    <a href="{{ path('product_details_basket_delete', { 'id': product_details.id }) }}">(remove)</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+
+    <p>
+        <a href="{{ path('product_details_basket_clear') }}">Clear all items in basket</a>
+    </p>
+
+{% endblock %}
+

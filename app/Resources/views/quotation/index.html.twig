@@ -1,0 +1,49 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Quotations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quotation no</th>
+                <th>User id</th>
+                <th>Suppliers id</th>
+                <th>Product name</th>
+                <th>Product description</th>
+                <th>Request on</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for quotation in quotations %}
+            <tr>
+                <td><a href="{{ path('quotation_show', { 'id': quotation.id }) }}">{{ quotation.id }}</a></td>
+                <td>{{ quotation.quotationNo }}</td>
+                <td>{{ quotation.userId }}</td>
+                <td>{{ quotation.suppliersId }}</td>
+                <td>{{ quotation.productName }}</td>
+                <td>{{ quotation.productDescription }}</td>
+                <td>{{ quotation.requestOn }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('quotation_show', { 'id': quotation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('quotation_edit', { 'id': quotation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('quotation_new') }}">Create a new quotation</a>
+        </li>
+    </ul>
+{% endblock %}

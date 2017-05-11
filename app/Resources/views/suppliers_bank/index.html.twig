@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suppliers_banks list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Suppliersid</th>
+                <th>Suppliersbankname</th>
+                <th>Suppliersaccno</th>
+                <th>Suppliersiban</th>
+                <th>Suppliersbic</th>
+                <th>Supplierscountry</th>
+                <th>Suppliersbankaddress</th>
+                <th>Uppliersswift</th>
+                <th>Suppliersroutingcod</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for suppliers_bank in suppliers_banks %}
+            <tr>
+                <td><a href="{{ path('suppliers_bank_show', { 'id': suppliers_bank.id }) }}">{{ suppliers_bank.id }}</a></td>
+                <td>{{ suppliers_bank.suppliersId }}</td>
+                <td>{{ suppliers_bank.suppliersBankName }}</td>
+                <td>{{ suppliers_bank.suppliersAccNo }}</td>
+                <td>{{ suppliers_bank.suppliersIBAN }}</td>
+                <td>{{ suppliers_bank.suppliersBIC }}</td>
+                <td>{{ suppliers_bank.suppliersCountry }}</td>
+                <td>{{ suppliers_bank.suppliersBankAddress }}</td>
+                <td>{{ suppliers_bank.uppliersSwift }}</td>
+                <td>{{ suppliers_bank.suppliersRoutingCod }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('suppliers_bank_show', { 'id': suppliers_bank.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('suppliers_bank_edit', { 'id': suppliers_bank.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('suppliers_bank_new') }}">Create a new suppliers_bank</a>
+        </li>
+    </ul>
+{% endblock %}

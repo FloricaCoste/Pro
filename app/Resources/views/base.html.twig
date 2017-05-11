@@ -1,0 +1,152 @@
+{% set colours = app.session.get('colours') %}
+{% if colours is null %}
+    {% set colours = {
+    'foreground': 'saddlebrown',
+    'background': 'cornsilk'
+    }
+    %}
+{% endif %}
+
+{% set user = app.session.get('user') %}
+
+    {% if user is null %}
+        <p>
+            Please login: <a href="{{ path('login') }}">Login: </a>
+        </p>
+    {% else %}
+        <header>
+            You are logged in as: <strong>{{ user.username }}</strong>
+            <br>
+            <a href="{{ path('logout') }}">Logout: </a>
+        </header>
+    {% endif %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}Hotel{% endblock %}</title>
+    <style>
+
+        .dropbtn {
+            background-color: peru;
+            color: white;
+            padding: 16px;
+            font-size: 16px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+        }
+
+        .dropdown-content a:hover {background-color: #f1f1f1}
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown:hover .dropbtn {
+            background-color: burlywood;
+        }
+
+        body {
+            color: {{ colours['foreground'] }};
+            background-color: {{ colours['background'] }};
+        }
+        tr, td {
+            border: 0.1rem solid saddlebrown;
+            padding: 0.5rem;
+        }
+        table{
+            border: 0.1rem solid chocolate;
+            padding: 0.5rem;
+        }
+        {% block stylesheets %}
+        {% endblock %}
+    </style>
+    <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/table.css') }}" />
+</head>
+<body>
+
+
+<ul>
+
+    <div class="dropdown">
+        <button class="dropbtn">Product</button>
+        <div class="dropdown-content">
+            <a href="{{ path('product_details_index') }}">Product details</a>
+            <a href="{{ path('product_invetory_index') }}">Product inventory</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Orders</button>
+        <div class="dropdown-content">
+            <a href="{{ path('po_index') }}">Create PO</a>
+            <a href="{{ path('orders_index') }}">Orders</a>
+            <a href="{{ path('orders_detail_index') }}">Orders details</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Suppliers</button>
+        <div class="dropdown-content">
+            <a href="{{ path('suppliers_details_index') }}">Suppliers details</a>
+            <a href="{{ path('suppliers_address_index') }}">Suppliers address</a>
+            <a href="{{ path('suppliers_contact_index') }}">Suppliers contact</a>
+            <a href="{{ path('suppliers_bank_index') }}">Suppliers Bank</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Stock</button>
+        <div class="dropdown-content">
+            <a href="{{ path('stock_index') }}">Stock</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Quotation</button>
+        <div class="dropdown-content">
+            <a href="{{ path('quotation_index') }}">Quotation</a>
+            <a href="{{ path('suppliers_quotation_index') }}">Suppliers Quotation</a>
+        </div>
+    </div>
+    <div class="dropdown">
+        <button class="dropbtn">Users</button>
+        <div class="dropdown-content">
+            <a href="{{ path('user_details_index') }}">User details</a>
+        </div>
+    </div>
+</ul>
+<hr>
+
+
+{% block body %}
+{% endblock %}
+{% block javascripts %}{% endblock %}
+
+<hr>
+<div id="footer">
+    {% block footer %}
+        &copy; Copyright 2017 by Florica Coste</a>.
+    {% endblock %}
+</div>
+</body>
+</html>

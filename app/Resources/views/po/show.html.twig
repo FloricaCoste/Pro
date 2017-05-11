@@ -1,0 +1,76 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Po</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ pO.id }}</td>
+            </tr>
+            <tr>
+                <th>Hotelid</th>
+                <td>{{ pO.hotelID }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersid</th>
+                <td>{{ pO.suppliersID }}</td>
+            </tr>
+            <tr>
+                <th>Pono</th>
+                <td>{{ pO.poNo }}</td>
+            </tr>
+            <tr>
+                <th>Podate</th>
+                <td>{% if pO.poDate %}{{ pO.poDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+            </tr>
+            <tr>
+                <th>Shiptoaddress</th>
+                <td>{{ pO.shipToAddress }}</td>
+            </tr>
+            <tr>
+                <th>Total</th>
+                <td>{{ pO.total }}</td>
+            </tr>
+            <tr>
+                <th>Vat</th>
+                <td>{{ pO.vAT }}</td>
+            </tr>
+            <tr>
+                <th>Discount</th>
+                <td>{{ pO.discount }}</td>
+            </tr>
+            <tr>
+                <th>Discountvalue</th>
+                <td>{{ pO.discountValue }}</td>
+            </tr>
+            <tr>
+                <th>Shipmentcosts</th>
+                <td>{{ pO.shipmentCosts }}</td>
+            </tr>
+            <tr>
+                <th>Taxrate</th>
+                <td>{{ pO.tAXRate }}</td>
+            </tr>
+            <tr>
+                <th>Aprovedaproved</th>
+                <td>{% if pO.aprovedaproved %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('po_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('po_edit', { 'id': pO.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

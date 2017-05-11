@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>User_detail</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ user_detail.id }}</td>
+            </tr>
+            <tr>
+                <th>Userid</th>
+                <td>{{ user_detail.userId }}</td>
+            </tr>
+            <tr>
+                <th>Userdetailsphone</th>
+                <td>{{ user_detail.userDetailsPhone }}</td>
+            </tr>
+            <tr>
+                <th>Userdetailslandline</th>
+                <td>{{ user_detail.userDetailsLandline }}</td>
+            </tr>
+            <tr>
+                <th>Userdetailsprefix</th>
+                <td>{{ user_detail.userDetailsPrefix }}</td>
+            </tr>
+            <tr>
+                <th>Userdetailsemail</th>
+                <td>{{ user_detail.userDetailsEmail }}</td>
+            </tr>
+            <tr>
+                <th>Userfirstname</th>
+                <td>{{ user_detail.userFirstName }}</td>
+            </tr>
+            <tr>
+                <th>Usersecondname</th>
+                <td>{{ user_detail.userSecondName }}</td>
+            </tr>
+            <tr>
+                <th>Useremail</th>
+                <td>{{ user_detail.userEMail }}</td>
+            </tr>
+            <tr>
+                <th>Uservalidate</th>
+                <td>{% if user_detail.userValidate %}Yes{% else %}No{% endif %}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_details_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('user_details_edit', { 'id': user_detail.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

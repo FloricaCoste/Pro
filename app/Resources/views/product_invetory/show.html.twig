@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Product inventory</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ product_invetory.id }}</td>
+            </tr>
+            <tr>
+                <th>Productid</th>
+                <td>{{ product_invetory.productID }}</td>
+            </tr>
+            <tr>
+                <th>Productcountinggroup</th>
+                <td>{{ product_invetory.productCountingGroup }}</td>
+            </tr>
+            <tr>
+                <th>Productunit</th>
+                <td>{{ product_invetory.productUnit }}</td>
+            </tr>
+            <tr>
+                <th>Qualityunit</th>
+                <td>{{ product_invetory.qualityUnit }}</td>
+            </tr>
+            <tr>
+                <th>Priceunit</th>
+                <td>{{ product_invetory.priceUnit }}</td>
+            </tr>
+            <tr>
+                <th>Productdescription</th>
+                <td>{{ product_invetory.productDescription }}</td>
+            </tr>
+            <tr>
+                <th>Url</th>
+                <td>{{ product_invetory.uRL }}</td>
+            </tr>
+            <tr>
+                <th>Estimateddeliverytime</th>
+                <td>{{ product_invetory.estimatedDeliveryTime }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+
+        <li>
+            <a href="{{ path('product_invetory_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('product_invetory_edit', { 'id': product_invetory.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

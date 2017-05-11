@@ -1,0 +1,39 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Userroles list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Userrole</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for userROLE in userROLEs %}
+            <tr>
+                <td><a href="{{ path('userrole_show', { 'id': userROLE.id }) }}">{{ userROLE.id }}</a></td>
+                <td>{{ userROLE.userROLE }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('userrole_show', { 'id': userROLE.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('userrole_edit', { 'id': userROLE.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('userrole_new') }}">Create a new userROLE</a>
+        </li>
+    </ul>
+{% endblock %}

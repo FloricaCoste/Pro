@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suppliers_contacts list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Suppliersid</th>
+                <th>Supplierscontactname</th>
+                <th>Suppliersphone</th>
+                <th>Suppliersmobile</th>
+                <th>Suppliersemail</th>
+                <th>Suppliersfax</th>
+                <th>Suppliersweb</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for suppliers_contact in suppliers_contacts %}
+            <tr>
+                <td><a href="{{ path('suppliers_contact_show', { 'id': suppliers_contact.id }) }}">{{ suppliers_contact.id }}</a></td>
+                <td>{{ suppliers_contact.suppliersId }}</td>
+                <td>{{ suppliers_contact.suppliersContactName }}</td>
+                <td>{{ suppliers_contact.suppliersPhone }}</td>
+                <td>{{ suppliers_contact.suppliersMobile }}</td>
+                <td>{{ suppliers_contact.suppliersEMail }}</td>
+                <td>{{ suppliers_contact.suppliersFax }}</td>
+                <td>{{ suppliers_contact.suppliersWeb }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('suppliers_contact_show', { 'id': suppliers_contact.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('suppliers_contact_edit', { 'id': suppliers_contact.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('suppliers_contact_new') }}">Create a new suppliers_contact</a>
+        </li>
+    </ul>
+{% endblock %}

@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>User details list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>User id</th>
+                <th>User phone no:</th>
+                <th>User land line</th>
+                <th>User prefix</th>
+                <th>Use alternative email</th>
+                <th>User first name</th>
+                <th>User second name</th>
+                <th>User email</th>
+                <th>User validate</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for user_detail in user_details %}
+            <tr>
+                <td><a href="{{ path('user_details_show', { 'id': user_detail.id }) }}">{{ user_detail.id }}</a></td>
+                <td>{{ user_detail.userId }}</td>
+                <td>{{ user_detail.userDetailsPhone }}</td>
+                <td>{{ user_detail.userDetailsLandline }}</td>
+                <td>{{ user_detail.userDetailsPrefix }}</td>
+                <td>{{ user_detail.userDetailsEmail }}</td>
+                <td>{{ user_detail.userFirstName }}</td>
+                <td>{{ user_detail.userSecondName }}</td>
+                <td>{{ user_detail.userEMail }}</td>
+                <td>{% if user_detail.userValidate %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('user_details_show', { 'id': user_detail.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('user_details_edit', { 'id': user_detail.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('user_details_new') }}">Create a new user_detail</a>
+        </li>
+    </ul>
+{% endblock %}

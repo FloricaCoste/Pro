@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Quotation</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ quotation.id }}</td>
+            </tr>
+            <tr>
+                <th>Quotationno</th>
+                <td>{{ quotation.quotationNo }}</td>
+            </tr>
+            <tr>
+                <th>Userid</th>
+                <td>{{ quotation.userId }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersid</th>
+                <td>{{ quotation.suppliersId }}</td>
+            </tr>
+            <tr>
+                <th>Productname</th>
+                <td>{{ quotation.productName }}</td>
+            </tr>
+            <tr>
+                <th>Productdescription</th>
+                <td>{{ quotation.productDescription }}</td>
+            </tr>
+            <tr>
+                <th>Requeston</th>
+                <td>{{ quotation.requestOn }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('quotation_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('quotation_edit', { 'id': quotation.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

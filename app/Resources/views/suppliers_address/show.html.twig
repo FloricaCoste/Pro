@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suppliers_address</h1>
+
+    <table>
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ suppliers_address.id }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersid</th>
+                <td>{{ suppliers_address.suppliersID }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersaddress</th>
+                <td>{{ suppliers_address.suppliersAddress }}</td>
+            </tr>
+            <tr>
+                <th>Suppliersregion</th>
+                <td>{{ suppliers_address.suppliersRegion }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('suppliers_address_index') }}">Back to the list</a>
+        </li>
+        <li>
+            <a href="{{ path('suppliers_address_edit', { 'id': suppliers_address.id }) }}">Edit</a>
+        </li>
+        <li>
+            {{ form_start(delete_form) }}
+                <input type="submit" value="Delete">
+            {{ form_end(delete_form) }}
+        </li>
+    </ul>
+{% endblock %}

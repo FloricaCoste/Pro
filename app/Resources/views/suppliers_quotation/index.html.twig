@@ -1,0 +1,55 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>Suppliers_quotations list</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Quotationno</th>
+                <th>Supplierid</th>
+                <th>Productcountinggroup</th>
+                <th>Productunit</th>
+                <th>Qualityunit</th>
+                <th>Priceunit</th>
+                <th>Productdescription</th>
+                <th>Url</th>
+                <th>Estimateddeliverytime</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for suppliers_quotation in suppliers_quotations %}
+            <tr>
+                <td><a href="{{ path('suppliers_quotation_show', { 'id': suppliers_quotation.id }) }}">{{ suppliers_quotation.id }}</a></td>
+                <td>{{ suppliers_quotation.quotationNo }}</td>
+                <td>{{ suppliers_quotation.supplierId }}</td>
+                <td>{{ suppliers_quotation.productCountingGroup }}</td>
+                <td>{{ suppliers_quotation.productUnit }}</td>
+                <td>{{ suppliers_quotation.qualityUnit }}</td>
+                <td>{{ suppliers_quotation.priceUnit }}</td>
+                <td>{{ suppliers_quotation.productDescription }}</td>
+                <td>{{ suppliers_quotation.uRL }}</td>
+                <td>{{ suppliers_quotation.estimatedDeliveryTime }}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('suppliers_quotation_show', { 'id': suppliers_quotation.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('suppliers_quotation_edit', { 'id': suppliers_quotation.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('suppliers_quotation_new') }}">Create a new suppliers_quotation</a>
+        </li>
+    </ul>
+{% endblock %}

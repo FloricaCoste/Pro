@@ -1,0 +1,8 @@
+tr, td {
+    border: 0.1rem solid saddlebrown;
+    padding: 0.5rem;
+}
+table{
+    border: 0.1rem solid chocolate;
+    padding: 0.5rem;
+}

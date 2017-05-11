@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block pageTitle %}Admin - home page{% endblock %}
+
+{% block body %}
+
+    {% set user = app.session.get('user') %}
+    {% if user is null %}
+        <p>
+            ERROR - Please login:
+            <br>
+            Please <a href="{{ path('user_login') }}"> login</a> before attempting to access this page
+        </p>
+    {% else %}
+
+        <header>
+            You are logged in as: {{ user.username }}
+            <br>
+            <a href="{{ path('user_logout') }}">logout</a>
+        </header>
+
+        <h1>Welcome to ADMIN home page</h1>
+
+
+        <p>
+            Welcome to the <strong>secure</strong> admin home page
+
+        </p>
+
+    {% endif %}
+{% endblock %}

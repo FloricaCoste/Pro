@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h1>List Of PO</h1>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Hotel id</th>
+                <th>Supplier id</th>
+                <th>Po number</th>
+                <th>PO date</th>
+                <th>Ship to address</th>
+                <th>Total</th>
+                <th>Vat</th>
+                <th>Discount</th>
+                <th>Discount value</th>
+                <th>Shipment costs</th>
+                <th>Tax rate</th>
+                <th>Approved </th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for pO in pOs %}
+            <tr>
+                <td><a href="{{ path('po_show', { 'id': pO.id }) }}">{{ pO.id }}</a></td>
+                <td>{{ pO.hotelID }}</td>
+                <td>{{ pO.suppliersID }}</td>
+                <td>{{ pO.poNo }}</td>
+                <td>{% if pO.poDate %}{{ pO.poDate|date('Y-m-d H:i:s') }}{% endif %}</td>
+                <td>{{ pO.shipToAddress }}</td>
+                <td>{{ pO.total }}</td>
+                <td>{{ pO.vAT }}</td>
+                <td>{{ pO.discount }}</td>
+                <td>{{ pO.discountValue }}</td>
+                <td>{{ pO.shipmentCosts }}</td>
+                <td>{{ pO.tAXRate }}</td>
+                <td>{% if pO.aprovedaproved %}Yes{% else %}No{% endif %}</td>
+                <td>
+                    <ul>
+                        <li>
+                            <a href="{{ path('po_show', { 'id': pO.id }) }}">show</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('po_edit', { 'id': pO.id }) }}">edit</a>
+                        </li>
+                    </ul>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <ul>
+        <li>
+            <a href="{{ path('po_new') }}">Create a new pO</a>
+        </li>
+    </ul>
+{% endblock %}

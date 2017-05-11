@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block pageTitle %}Home page{% endblock %}
+
+{% block body %}
+
+    <h1>colours bit</h1>
+    {% set default_colours = 'no' %}
+    {% set colours = app.session.get('colours') %}
+    {% if colours is null %}
+        {% set default_colours = 'yes' %}
+        {% set colours = {
+        'foreground': 'black',
+        'background': 'yellow'
+        }
+        %}
+    {% endif %}
+
+
+    <h1>welcome to home page</h1>
+
+    <hr>
+    <ul>
+
+        <li>
+            <a href="{{ path('homepage') }}">Back to home page</a>
+        </li>
+
+        <li>
+            <a hrer="http://symfony.com/doc/current/page_creation.html">getting started (on the Symfony website)</a>
+        </li>
+    </ul>
+
+
+
+    <p>
+        First page
+    </p>
+
+    <hr>
+
+    {{ dump() }}
+{% endblock %}
